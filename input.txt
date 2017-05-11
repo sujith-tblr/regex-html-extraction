@@ -54,6 +54,7 @@
 <div class="wbt">
 <input type="text"/>
 </div>
+<div class="wbt"></div>
 <div class="wbi">
 <img src="text"/>
 </div>
@@ -75,5 +76,9 @@
 <img src="text"/>
 </div>
 </section>
+
+<div class="wbi"></div>
+<div class="wb3"></div>
+<div class="wbt"></div>
 </body>
 </html>
