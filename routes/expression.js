@@ -5,17 +5,24 @@ var cheerio = require('cheerio')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  
-var cont="<section class='aboutus'>asd123</section>";
-var contents = fs.readFileSync('./input.txt', 'utf8');
+var file='./input.html';
+var file2='./output.html';
+var nav='<div class="ge_editor"></div>';
+var contents = fs.readFileSync(file, 'utf8');
 $ = cheerio.load(contents);
- var sections=[];
-var h2 = $('section.aboutus').each(function(i,elem){
- sections[i] = $(elem).html();
- //console.log($(elem).find('div').text());
-});
+//  var sections=[];
+// var h2 = $('section.aboutus').each(function(i,elem){
+//  sections[i] = $(elem).html();
+//  //console.log($(elem).find('div').text());
+// });
+$('div.gep').removeClass('gep').addClass('geh');
+$('div.geh').children().wrap(nav);
+sections = $.html();
+//res.send(sections);
+fs.writeFile(file2, sections, function(){
+    res.send("ok");
 
-res.send(sections);
+});
 });
 
 module.exports = router;
